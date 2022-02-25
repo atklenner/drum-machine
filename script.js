@@ -1,14 +1,6 @@
-import { Instrument } from "./Instrument.js";
+import { InstrumentComponent } from "./InstrumentComponent.js";
 
-// const kick = new Instrument(Tone.MembraneSynth, ".kick");
-// const snare = new Instrument(Tone.NoiseSynth, ".snare");
-// const cymbal = new Instrument(Tone.MetalSynth, ".cymbal");
-
-// maybe this should be a sample player more than a synth, just to keep the controls more consistent
-
-// const sample = new Tone.Player();
-const kick = new Instrument("./public/707Kick.WAV", ".kick");
-const snare = new Instrument("./public/707Snare.WAV", ".snare");
-// Tone.loaded().then(() => {
-//   sample.start();
-// });
+// const kick = new Instrument("./public/707Kick.WAV", ".kick");
+// const snare = new Instrument("./public/707Snare.WAV", ".snare");
+// const chh = new Instrument("./public/909CHH.WAV", ".chh");
+// const ohh = new Instrument("./public/909OHH.WAV", ".ohh");

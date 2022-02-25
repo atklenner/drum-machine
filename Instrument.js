@@ -1,12 +1,10 @@
 export class Instrument {
-  constructor(sampleLocation, DOMelement) {
+  constructor(sampleLocation, DOMElement) {
     this.module = new Tone.Player(sampleLocation);
     this.distortion = new Tone.Distortion(0);
     this.filter = new Tone.Filter(20000, "lowpass");
-    // this.pitch = 60;
-    // this.decay = 1;
     this.module.chain(this.distortion, this.filter, Tone.Destination);
-    this.DOMelement = document.querySelector(DOMelement);
+    this.DOMElement = DOMElement;
     this.setControls();
   }
 
@@ -22,10 +20,6 @@ export class Instrument {
     this.filter.set({ frequency: value });
   }
 
-  // setDecay(value) {
-  //   this.pitch = value;
-  // }
-
   setVolume(value) {
     this.module.set({ volume: value });
   }
@@ -35,25 +29,25 @@ export class Instrument {
   }
 
   setControls() {
-    const triggerBtn = this.DOMelement.querySelector(".trigger-btn");
+    const triggerBtn = this.DOMElement.querySelector(".trigger-btn");
     triggerBtn.addEventListener("click", () => this.trigger());
 
-    const distSlider = this.DOMelement.querySelector("#distortion");
+    const distSlider = this.DOMElement.querySelector("#distortion");
     distSlider.addEventListener("change", (e) => {
       this.setDistortion(e.target.value);
     });
 
-    const filter = this.DOMelement.querySelector("#filter");
+    const filter = this.DOMElement.querySelector("#filter");
     filter.addEventListener("change", (e) => {
       this.setFilter(e.target.value);
     });
 
-    const volume = this.DOMelement.querySelector("#volume");
+    const volume = this.DOMElement.querySelector("#volume");
     volume.addEventListener("change", (e) => {
       this.setVolume(e.target.value);
     });
 
-    const pitch = this.DOMelement.querySelector("#pitch");
+    const pitch = this.DOMElement.querySelector("#pitch");
     pitch.addEventListener("change", (e) => {
       this.setPitch(e.target.value);
     });

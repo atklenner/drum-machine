@@ -7,194 +7,71 @@
     <title>Tone</title>
   </head>
   <body>
-    <div class="sound-container kick">
-      <button class="trigger-btn">Kick</button>
-      <label for="volume"
-        ><input
-          type="range"
-          name="volume"
-          id="volume"
-          value="0"
-          min="-18"
-          max="6"
-          step="1"
-        />Volume</label
-      >
-      <label for="pitch"
-        ><input
-          type="range"
-          name="pitch"
-          id="pitch"
-          value="1"
-          min="0.2"
-          max="2"
-          step="0.01"
-        />Pitch</label
-      >
-      <label for="distortion"
-        ><input
-          type="range"
-          name="distortion"
-          id="distortion"
-          value="0"
-          min="0"
-          max="1"
-          step="0.01"
-        />Distortion</label
-      >
-      <label for="filter"
-        ><input
-          type="range"
-          name="filter"
-          id="filter"
-          value="20000"
-          min="100"
-          max="20000"
-          step="100"
-        />Filter</label
-      >
-    </div>
-    <div class="sound-container snare">
-      <button class="trigger-btn">Snare</button>
-      <label for="volume"
-        ><input
-          type="range"
-          name="volume"
-          id="volume"
-          value="0"
-          min="-18"
-          max="6"
-          step="1"
-        />Volume</label
-      >
-      <label for="pitch"
-        ><input
-          type="range"
-          name="pitch"
-          id="pitch"
-          value="1"
-          min="0.2"
-          max="2"
-          step="0.01"
-        />Pitch</label
-      >
-      <label for="distortion"
-        ><input
-          type="range"
-          name="distortion"
-          id="distortion"
-          value="0"
-          min="0"
-          max="1"
-          step="0.01"
-        />Distortion</label
-      >
-      <label for="filter"
-        ><input
-          type="range"
-          name="filter"
-          id="filter"
-          value="20000"
-          min="100"
-          max="20000"
-          step="100"
-        />Filter</label
-      >
-    </div>
-    <div class="sound-container chh">
-      <button class="trigger-btn">CHH</button>
-      <label for="volume"
-        ><input
-          type="range"
-          name="volume"
-          id="volume"
-          value="0"
-          min="-18"
-          max="6"
-          step="1"
-        />Volume</label
-      >
-      <label for="pitch"
-        ><input
-          type="range"
-          name="pitch"
-          id="pitch"
-          value="1"
-          min="0.2"
-          max="2"
-          step="0.01"
-        />Pitch</label
-      >
-      <label for="distortion"
-        ><input
-          type="range"
-          name="distortion"
-          id="distortion"
-          value="0"
-          min="0"
-          max="1"
-          step="0.01"
-        />Distortion</label
-      >
-      <label for="filter"
-        ><input
-          type="range"
-          name="filter"
-          id="filter"
-          value="20000"
-          min="100"
-          max="20000"
-          step="100"
-        />Filter</label
-      >
-    </div>
-    <div class="sound-container ohh">
-      <button class="trigger-btn">OHH</button>
-      <label for="volume"
-        ><input
-          type="range"
-          name="volume"
-          id="volume"
-          value="0"
-          min="-18"
-          max="6"
-          step="1"
-        />Volume</label
-      >
-      <label for="pitch"
-        ><input
-          type="range"
-          name="pitch"
-          id="pitch"
-          value="1"
-          min="0.2"
-          max="2"
-          step="0.01"
-        />Pitch</label
-      >
-      <label for="distortion"
-        ><input
-          type="range"
-          name="distortion"
-          id="distortion"
-          value="0"
-          min="0"
-          max="1"
-          step="0.01"
-        />Distortion</label
-      >
-      <label for="filter"
-        ><input
-          type="range"
-          name="filter"
-          id="filter"
-          value="20000"
-          min="100"
-          max="20000"
-          step="100"
-        />Filter</label
-      >
-    </div>
+    <template id="instrument-template"
+      ><div class="sound-container">
+        <button class="trigger-btn"></button>
+        <label for="volume"
+          ><input
+            type="range"
+            name="volume"
+            id="volume"
+            value="0"
+            min="-18"
+            max="6"
+            step="1"
+          />Volume</label
+        >
+        <label for="pitch"
+          ><input
+            type="range"
+            name="pitch"
+            id="pitch"
+            value="1"
+            min="0.2"
+            max="2"
+            step="0.01"
+          />Pitch</label
+        >
+        <label for="distortion"
+          ><input
+            type="range"
+            name="distortion"
+            id="distortion"
+            value="0"
+            min="0"
+            max="1"
+            step="0.01"
+          />Distortion</label
+        >
+        <label for="filter"
+          ><input
+            type="range"
+            name="filter"
+            id="filter"
+            value="20000"
+            min="100"
+            max="20000"
+            step="100"
+          />Filter</label
+        >
+      </div></template
+    >
+    <instrument-component
+      sample-name="Kick"
+      sample-path="./public/707Kick.WAV"
+    ></instrument-component>
+    <instrument-component
+      sample-name="Snare"
+      sample-path="./public/707Snare.WAV"
+    ></instrument-component>
+    <instrument-component
+      sample-name="CHH"
+      sample-path="./public/909CHH.WAV"
+    ></instrument-component>
+    <instrument-component
+      sample-name="OHH"
+      sample-path="./public/909OHH.WAV"
+    ></instrument-component>
   </body>
   <script
     src="https://cdnjs.cloudflare.com/ajax/libs/tone/14.8.37/Tone.min.js"
