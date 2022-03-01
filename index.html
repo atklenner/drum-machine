@@ -5,62 +5,275 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="style.css" />
-    <title>Tone</title>
+    <title>Tone Machine</title>
   </head>
   <body>
     <template id="instrument-template">
       <link
         rel="stylesheet"
-        href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css" />
-      <div class="sound-container box">
-        <button
-          class="trigger-btn button mb-2 is-fullwidth is-large is-danger"
-        ></button>
-        <label for="volume" class="label"
-          >Pre-Volume<input
-            type="range"
-            name="volume"
-            id="volume"
-            value="0"
-            min="-18"
-            max="6"
-            step="1"
-            class="input"
-        /></label>
-        <label for="pitch" class="label"
-          >Pitch<input
-            type="range"
-            name="pitch"
-            id="pitch"
-            value="1"
-            min="0.2"
-            max="2"
-            step="0.01"
-            class="input"
-        /></label>
-        <label for="distortion" class="label"
-          >Distortion<input
-            type="range"
-            name="distortion"
-            id="distortion"
-            value="0"
-            min="0"
-            max="1"
-            step="0.01"
-            class="input"
-        /></label>
-        <label for="filter" class="label"
-          >Filter<input
-            type="range"
-            name="filter"
-            id="filter"
-            value="20000"
-            min="100"
-            max="20000"
-            step="100"
-            class="input"
-        /></label></div
-    ></template>
+        href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css"
+      />
+      <div class="box">
+        <!-- Sample settings -->
+
+        <div class="field">
+          <div class="control">
+            <button
+              id="trigger-btn"
+              class="button is-fullwidth is-large is-danger"
+            ></button>
+          </div>
+        </div>
+        <!-- <div class="field">
+          <div class="control">
+            <div class="select is-fullwidth">
+              <select name="sample" id="sample">
+                <option value="1">Sound 1</option>
+                <option value="2">Sound 2</option>
+                <option value="3">Sound 3</option>
+                <option value="4">Sound 4</option>
+              </select>
+            </div>
+          </div>
+        </div> -->
+        <div class="field">
+          <label for="pitch" class="label">Pitch</label>
+          <div class="control">
+            <input
+              type="range"
+              name="pitch"
+              id="pitch"
+              value="1"
+              min="0.1"
+              max="1.9"
+              step="0.01"
+              class="input is-danger has-background-danger-light"
+            />
+          </div>
+        </div>
+        <div class="field">
+          <label for="distortion" class="label">Distortion</label>
+          <div class="control">
+            <input
+              type="range"
+              name="distortion"
+              id="distortion"
+              value="0"
+              min="0"
+              max="1"
+              step="0.01"
+              class="input is-danger has-background-danger-light"
+            />
+          </div>
+        </div>
+
+        <!-- EQ -->
+        <hr />
+        <div class="field">
+          <label for="high" class="label">High</label>
+          <div class="control">
+            <input
+              type="range"
+              name="high"
+              id="high"
+              value="0"
+              max="10"
+              min="-10"
+              step="0.1"
+              class="input is-warning has-background-warning-light"
+            />
+          </div>
+        </div>
+        <div class="field">
+          <label for="mid" class="label">Mid</label>
+          <div class="control">
+            <input
+              type="range"
+              name="mid"
+              id="mid"
+              value="0"
+              max="10"
+              min="-10"
+              step="0.1"
+              class="input is-warning has-background-warning-light"
+            />
+          </div>
+        </div>
+        <div class="field">
+          <label for="low" class="label">Low</label>
+          <div class="control">
+            <input
+              type="range"
+              name="low"
+              id="low"
+              value="0"
+              max="10"
+              min="-10"
+              step="0.1"
+              class="input is-warning has-background-warning-light"
+            />
+          </div>
+        </div>
+
+        <!-- Compressor -->
+        <hr />
+        <div class="field">
+          <label for="attack" class="label">Attack</label>
+          <div class="control">
+            <input
+              type="range"
+              name="attack"
+              id="attack"
+              value="0.0004"
+              max="0.0008"
+              min="0.00002"
+              step="0.000001"
+              class="input is-success has-background-success-light"
+            />
+          </div>
+        </div>
+        <div class="field">
+          <label for="release" class="label">Release</label>
+          <div class="control">
+            <input
+              type="range"
+              name="release"
+              id="release"
+              value="0.53"
+              max="1"
+              min="0.05"
+              step="0.01"
+              class="input is-success has-background-success-light"
+            />
+          </div>
+        </div>
+        <div class="field">
+          <label for="ratio" class="label">Ratio</label>
+          <div class="control">
+            <label for="four" class="radio">
+              <input
+                type="radio"
+                name="four"
+                id="four"
+                class="radio"
+                value="4"
+                checked
+              />
+              4
+            </label>
+            <label for="eight" class="radio">
+              <input
+                type="radio"
+                name="eight"
+                id="eight"
+                class="radio"
+                value="8"
+              />
+              8
+            </label>
+            <label for="twelve" class="radio">
+              <input
+                type="radio"
+                name="twelve"
+                id="twelve"
+                class="radio"
+                value="12"
+              />
+              12
+            </label>
+            <label for="twenty" class="radio">
+              <input
+                type="radio"
+                name="twenty"
+                id="twenty"
+                class="radio"
+                value="20"
+              />
+              20
+            </label>
+          </div>
+        </div>
+
+        <!-- FX Send -->
+
+        <hr />
+        <div class="field">
+          <label for="delay" class="label">Delay</label>
+          <div class="control">
+            <input
+              type="range"
+              name="delay"
+              id="delay"
+              class="input is-info has-background-info-light"
+              value="-60"
+              min="-60"
+              max="6"
+              step="0.5"
+            />
+          </div>
+        </div>
+        <div class="field">
+          <label for="reverb" class="label">Reverb</label>
+          <div class="control">
+            <input
+              type="range"
+              name="reverb"
+              id="reverb"
+              class="input is-info has-background-info-light"
+              value="-60"
+              min="-60"
+              max="6"
+              step="0.5"
+            />
+          </div>
+        </div>
+
+        <!-- Channel -->
+
+        <hr />
+        <div class="field is-grouped">
+          <div class="control">
+            <button class="button is-danger is-light" id="mute">Mute</button>
+          </div>
+          <div class="control">
+            <button class="button is-warning is-light" id="solo">Solo</button>
+          </div>
+        </div>
+        <div class="field">
+          <label for="pan" class="label">Pan</label>
+          <div class="control">
+            <input
+              type="range"
+              name="pan"
+              id="pan"
+              value="0"
+              max="1"
+              min="-1"
+              step="0.01"
+              class="input is-link has-background-link-light"
+            />
+          </div>
+        </div>
+        <div class="field">
+          <label for="volume" class="label">Volume</label>
+          <div class="control">
+            <input
+              type="range"
+              name="volume"
+              id="volume"
+              value="0"
+              min="-18"
+              max="6"
+              step="1"
+              class="input is-link has-background-link-light"
+            />
+          </div>
+        </div>
+      </div>
+    </template>
+
+    <!-- tailwind starts here -->
+
     <div class="flex">
       <instrument-component
         sample-name="Kick"
@@ -85,6 +298,14 @@
       <instrument-component
         sample-name="Crash"
         sample-path="./public/909Crash.WAV"
+      ></instrument-component>
+      <instrument-component
+        sample-name="Ride"
+        sample-path="./public/LinnRide.wav"
+      ></instrument-component>
+      <instrument-component
+        sample-name="Perc"
+        sample-path="./public/909Rim.wav"
       ></instrument-component>
     </div>
   </body>
