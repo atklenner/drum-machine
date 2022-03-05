@@ -2,7 +2,7 @@
 
 export class Instrument {
   constructor(sampleLocation) {
-    this.gain = new Tone.Gain(3);
+    this.gain = new Tone.Gain(5);
     this.module = new Tone.Player(sampleLocation);
     this.distortion = new Tone.Distortion(0);
     this.eq = new Tone.EQ3();
@@ -10,18 +10,18 @@ export class Instrument {
       attack: 0.004,
       release: 0.53,
       threshold: -40,
-      ratio: 4,
+      ratio: 1,
       knee: 30,
     });
     this.channel = new Tone.Channel();
-    this.channel.send("delay");
-    this.channel.send("reverb");
+    this.delaySend = this.channel.send("delay", -60);
+    this.reverbSend = this.channel.send("reverb", -60);
     this.module.chain(
-      this.gain,
       this.distortion,
       this.eq,
       this.compressor,
       this.channel,
+      this.gain,
       Tone.Destination
     );
   }
@@ -63,11 +63,11 @@ export class Instrument {
   }
 
   setDelay(value) {
-    this.pingPong.set({ wet: value });
+    this.delaySend.set({ gain: value });
   }
 
   setReverb(value) {
-    this.reverb.set({ wet: value });
+    this.reverbSend.set({ gain: value });
   }
 
   setMute(bool) {

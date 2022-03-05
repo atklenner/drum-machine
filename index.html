@@ -4,7 +4,10 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="style.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css"
+    />
     <title>Tone Machine</title>
   </head>
   <body>
@@ -15,7 +18,6 @@
       />
       <div class="box">
         <!-- Sample settings -->
-
         <div class="field">
           <div class="control">
             <button
@@ -150,22 +152,32 @@
         <div class="field">
           <label for="ratio" class="label">Ratio</label>
           <div class="control">
+            <label for="one" class="radio">
+              <input
+                type="radio"
+                name="ratio"
+                id="ratio"
+                class="radio"
+                value="1"
+                checked
+              />
+              1
+            </label>
             <label for="four" class="radio">
               <input
                 type="radio"
-                name="four"
-                id="four"
+                name="ratio"
+                id="ratio"
                 class="radio"
                 value="4"
-                checked
               />
               4
             </label>
             <label for="eight" class="radio">
               <input
                 type="radio"
-                name="eight"
-                id="eight"
+                name="ratio"
+                id="ratio"
                 class="radio"
                 value="8"
               />
@@ -174,8 +186,8 @@
             <label for="twelve" class="radio">
               <input
                 type="radio"
-                name="twelve"
-                id="twelve"
+                name="ratio"
+                id="ratio"
                 class="radio"
                 value="12"
               />
@@ -184,8 +196,8 @@
             <label for="twenty" class="radio">
               <input
                 type="radio"
-                name="twenty"
-                id="twenty"
+                name="ratio"
+                id="ratio"
                 class="radio"
                 value="20"
               />
@@ -271,39 +283,52 @@
         </div>
       </div>
     </template>
-
-    <!-- tailwind starts here -->
-
-    <div class="flex">
+    <div class="columns">
       <instrument-component
+        id="kick"
+        class="column"
         sample-name="Kick"
         sample-path="./public/707Kick.WAV"
       ></instrument-component>
       <instrument-component
+        id="snare"
+        class="column"
         sample-name="Snare"
         sample-path="./public/707Snare.WAV"
       ></instrument-component>
       <instrument-component
+        id="clap"
+        class="column"
         sample-name="Clap"
         sample-path="./public/909Clap.WAV"
       ></instrument-component>
       <instrument-component
+        id="chh"
+        class="column"
         sample-name="CHH"
         sample-path="./public/909CHH.WAV"
       ></instrument-component>
       <instrument-component
+        id="ohh"
+        class="column"
         sample-name="OHH"
         sample-path="./public/909OHH.WAV"
       ></instrument-component>
       <instrument-component
+        id="crash"
+        class="column"
         sample-name="Crash"
         sample-path="./public/909Crash.WAV"
       ></instrument-component>
       <instrument-component
+        id="ride"
+        class="column"
         sample-name="Ride"
         sample-path="./public/LinnRide.wav"
       ></instrument-component>
       <instrument-component
+        id="perc"
+        class="column"
         sample-name="Perc"
         sample-path="./public/909Rim.wav"
       ></instrument-component>

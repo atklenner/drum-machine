@@ -1,4 +1,5 @@
 import { InstrumentComponent } from "./InstrumentComponent.js";
+import "./MasterFX.js";
 
 customElements.define("instrument-component", InstrumentComponent);
 
@@ -11,14 +12,18 @@ customElements.define("instrument-component", InstrumentComponent);
 
 // really you should look through the Tone API in depth and see what everything is about
 
-const delay = new Tone.PingPongDelay({
-  delayTime: "8n",
-  feedback: 0.01,
-  wet: 1,
-});
-const delayChannel = new Tone.Channel().connect(delay);
-delayChannel.receive("delay");
+// const monoSynth = new Tone.MonoSynth({
+//   oscillator: {
+//     type: "square",
+//   },
+//   envelope: {
+//     attack: 0.1,
+//     decay: 0,
+//   },
+// });
+// const monoChannel = new Tone.Channel().toDestination();
+// monoChannel.send("delay");
+// monoChannel.send("reverb");
+// monoSynth.connect(monoChannel);
 
-const reverb = new Tone.Reverb({ wet: 1 });
-const reverbChannel = new Tone.Channel().connect(reverb);
-reverbChannel.receive("reverb");
+// monoSynth.triggerAttackRelease("C4", "8n");

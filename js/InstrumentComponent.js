@@ -54,7 +54,13 @@ export class InstrumentComponent extends HTMLElement {
       .addEventListener("change", (e) => {
         this.instrument.setRelease(e.target.value);
       });
-    ///////////////////////////////////////////////////////////////////
+
+    this.shadowRoot.querySelectorAll("#ratio").forEach((radio) => {
+      radio.addEventListener("click", (e) => {
+        this.instrument.setRatio(e.target.value);
+      });
+    });
+
     this.shadowRoot.querySelector("#delay").addEventListener("change", (e) => {
       this.instrument.setDelay(e.target.value);
     });
@@ -62,7 +68,7 @@ export class InstrumentComponent extends HTMLElement {
     this.shadowRoot.querySelector("#reverb").addEventListener("change", (e) => {
       this.instrument.setReverb(e.target.value);
     });
-    /////////////////////////////////////////////////////////////////////
+
     this.shadowRoot.querySelector("#mute").addEventListener("click", () => {
       const mute = () => {
         this.instrument.setMute(true);
@@ -146,6 +152,12 @@ export class InstrumentComponent extends HTMLElement {
       .removeEventListener("change", (e) => {
         this.instrument.setRelease(e.target.value);
       });
+
+    this.shadowRoot.querySelectorAll("#ratio").forEach((radio) => {
+      radio.addEventListener("click", (e) => {
+        this.instrument.setRatio(e.target.value);
+      });
+    });
 
     this.shadowRoot
       .querySelector("#delay")
