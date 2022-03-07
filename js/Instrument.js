@@ -6,20 +6,12 @@ export class Instrument {
     this.module = new Tone.Player(sampleLocation);
     this.distortion = new Tone.Distortion(0);
     this.eq = new Tone.EQ3();
-    this.compressor = new Tone.Compressor({
-      attack: 0.004,
-      release: 0.53,
-      threshold: -40,
-      ratio: 1,
-      knee: 30,
-    });
     this.channel = new Tone.Channel();
     this.delaySend = this.channel.send("delay", -60);
     this.reverbSend = this.channel.send("reverb", -60);
     this.module.chain(
       this.distortion,
       this.eq,
-      this.compressor,
       this.channel,
       this.gain,
       Tone.Destination
@@ -48,18 +40,6 @@ export class Instrument {
 
   setLow(value) {
     this.eq.set({ low: value });
-  }
-
-  setAttack(value) {
-    this.compressor.set({ attack: value });
-  }
-
-  setRelease(value) {
-    this.compressor.set({ release: value });
-  }
-
-  setRatio(value) {
-    this.compressor.set({ ratio: value });
   }
 
   setDelay(value) {

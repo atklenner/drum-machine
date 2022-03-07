@@ -45,22 +45,6 @@ export class InstrumentComponent extends HTMLElement {
       this.instrument.setLow(e.target.value);
     });
 
-    this.shadowRoot.querySelector("#attack").addEventListener("change", (e) => {
-      this.instrument.setAttack(e.target.value);
-    });
-
-    this.shadowRoot
-      .querySelector("#release")
-      .addEventListener("change", (e) => {
-        this.instrument.setRelease(e.target.value);
-      });
-
-    this.shadowRoot.querySelectorAll("#ratio").forEach((radio) => {
-      radio.addEventListener("click", (e) => {
-        this.instrument.setRatio(e.target.value);
-      });
-    });
-
     this.shadowRoot.querySelector("#delay").addEventListener("change", (e) => {
       this.instrument.setDelay(e.target.value);
     });
@@ -139,24 +123,6 @@ export class InstrumentComponent extends HTMLElement {
 
     this.shadowRoot.querySelector("#low").removeEventListener("change", (e) => {
       this.instrument.setLow(e.target.value);
-    });
-
-    this.shadowRoot
-      .querySelector("#attack")
-      .removeEventListener("change", (e) => {
-        this.instrument.setAttack(e.target.value);
-      });
-
-    this.shadowRoot
-      .querySelector("#release")
-      .removeEventListener("change", (e) => {
-        this.instrument.setRelease(e.target.value);
-      });
-
-    this.shadowRoot.querySelectorAll("#ratio").forEach((radio) => {
-      radio.addEventListener("click", (e) => {
-        this.instrument.setRatio(e.target.value);
-      });
     });
 
     this.shadowRoot
