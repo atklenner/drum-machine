@@ -1,7 +1,25 @@
 // import * as Tone from "./node_modules/tone/build/Tone.js";
 
+function newArray(n) {
+  const array = [];
+  for (let i = 0; i < n; i++) {
+    array.push(i);
+  }
+  return array;
+}
+
 export class Instrument {
   constructor(sampleLocation) {
+    this.sequenceArray = newArray(16);
+    this.sequence = new Tone.Sequence(
+      (time, column) => {
+        if (this.sequenceArray[column] === 1) {
+          this.module.start(time);
+        }
+      },
+      newArray(16),
+      "16n"
+    );
     this.gain = new Tone.Gain(5);
     this.module = new Tone.Player(sampleLocation);
     this.distortion = new Tone.Distortion(0);
@@ -20,6 +38,18 @@ export class Instrument {
 
   trigger() {
     this.module.start();
+  }
+
+  start() {
+    this.sequence.start();
+  }
+
+  stop() {
+    this.sequence.stop();
+  }
+
+  setSequence(array) {
+    this.sequenceArray = array;
   }
 
   setPitch(value) {
